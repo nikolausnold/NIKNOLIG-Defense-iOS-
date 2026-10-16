@@ -32,12 +32,21 @@ Workflow-Run-Seite. Es enthält
 
 ## iOS
 
-Die nativen iOS-Apps liegen im separaten
+Die native SwiftUI-Vorschau nach Android-Vorbild liegt in `ios/NIKNOLIG.xcodeproj`.
+Sie bildet den aktuellen Android-Funktionsumfang ab: Systemstatus, Supportkontakt
+sowie das lokal gespeicherte Lernprofil mit Einwilligung, Erklärungsart,
+Feedbackzählern, Sitzungskurzfassung und Löschfunktion. Geräteverbindung,
+Sicherheitsfreigaben und produktive Funktionen sind weiterhin nicht implementiert.
+
+Ein iOS-Simulator-Build benötigt macOS mit Xcode:
+
+```sh
+xcodebuild -project ios/NIKNOLIG.xcodeproj -scheme NIKNOLIG \
+  -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' build
+```
+
+Weitere native iOS-Apps liegen im separaten
 [NIKNOLIG-iOS-Monorepo](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo).
-Dieses Repository enthält kein Xcode-Projekt. iOS-Simulator-Builds benötigen macOS
-mit Xcode; Build-Befehle und Status sind in der README und im
-[iOS-Validierungsworkflow](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo/actions/workflows/ios-validation.yml)
-des Monorepos dokumentiert.
 
 ## Support
 

@@ -108,21 +108,28 @@ class LearningProfileActivity : Activity() {
     }
 
     private fun recordFeedback(counterKey: String) {
-        if (!learningEnabledSwitch.isChecked) return
-
         val currentCount = learningPreferences.getLong(counterKey, 0)
-        learningPreferences.edit().putLong(counterKey, currentCount + 1).apply()
+        val updatedCount = LearningProfileRules.incrementFeedbackCount(
+            currentCount,
+            learningEnabledSwitch.isChecked
+        )
+        if (updatedCount == currentCount) return
+
+        learningPreferences.edit().putLong(counterKey, updatedCount).apply()
         updateLearningControls()
     }
 
     private fun saveSessionSummary() {
-        val summary = sessionSummaryInput.text.toString().trim()
-        if (summary.isEmpty()) {
+        val summary = LearningProfileRules.normalizeSessionSummary(
+            sessionSummaryInput.text.toString()
+        )
+        if (summary == null) {
             learningPreferences.edit().remove(KEY_SESSION_SUMMARY).apply()
             sessionSummaryStatus.setText(R.string.session_summary_empty_status)
             return
         }
 
+        sessionSummaryInput.setText(summary)
         learningPreferences.edit().putString(KEY_SESSION_SUMMARY, summary).apply()
         sessionSummaryStatus.setText(R.string.session_summary_saved_status)
     }

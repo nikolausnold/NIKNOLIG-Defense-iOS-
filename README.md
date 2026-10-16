@@ -18,11 +18,26 @@ Debug-Build starten:
 ./gradlew :app:assembleDebug
 ```
 
+Unit-Tests für das lokale Lernprofil ausführen:
+
+```sh
+./gradlew :app:testDebugUnitTest
+```
+
 Der [Android-Build-Workflow](https://github.com/nikolausnold/NIKNOLIG/actions/workflows/android-build.yml)
 erstellt und prüft die Debug-APK. Nach einem erfolgreichen Lauf findest du das
 Artifact `niknolig-debug-apk-<run_id>-<run_attempt>` unter **Artifacts** auf der
 Workflow-Run-Seite. Es enthält
 `app/build/outputs/apk/debug/app-debug.apk` und ist 14 Tage verfügbar.
+
+## iOS
+
+Die nativen iOS-Apps liegen im separaten
+[NIKNOLIG-iOS-Monorepo](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo).
+Dieses Repository enthält kein Xcode-Projekt. iOS-Simulator-Builds benötigen macOS
+mit Xcode; Build-Befehle und Status sind in der README und im
+[iOS-Validierungsworkflow](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo/actions/workflows/ios-validation.yml)
+des Monorepos dokumentiert.
 
 ## Support
 

@@ -17,6 +17,8 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+      - name: Run unit tests
+        run: ./gradlew :app:testDebugUnitTest --no-daemon
       - name: Assemble debug APK
         run: ./gradlew :app:assembleDebug --no-daemon
       - name: Verify debug APK

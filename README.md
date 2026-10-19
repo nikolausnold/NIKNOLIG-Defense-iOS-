@@ -1,8 +1,9 @@
 # NIKNOLIG
 
-Eigenständiges Android-Entwicklungsgerüst für NIKNOLIG und Elektro-Engel. Der
-aktuelle Bildschirm ist eine Vorschau; BLE, Gerätevertrauen,
-Sicherheitsfreigaben und produktive Funktionen sind noch nicht implementiert.
+Dieses Repository enthält das Android-Entwicklungsgerüst und die Website für
+NIKNOLIG und Elektro-Engel sowie die aus dem iOS-Monorepo synchronisierte
+NIKNOLIG-Defense-iOS-Grundlage. Produktive Geräte- und Defense-Funktionen sind
+noch nicht implementiert.
 
 ## Build-Basis
 
@@ -30,14 +31,30 @@ Artifact `niknolig-debug-apk-<run_id>-<run_attempt>` unter **Artifacts** auf der
 Workflow-Run-Seite. Es enthält
 `app/build/outputs/apk/debug/app-debug.apk` und ist 14 Tage verfügbar.
 
-## iOS
+## NIKNOLIG Defense für iOS
 
-Die nativen iOS-Apps liegen im separaten
-[NIKNOLIG-iOS-Monorepo](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo).
-Dieses Repository enthält kein Xcode-Projekt. iOS-Simulator-Builds benötigen macOS
-mit Xcode; Build-Befehle und Status sind in der README und im
-[iOS-Validierungsworkflow](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo/actions/workflows/ios-validation.yml)
-des Monorepos dokumentiert.
+Das Xcode-Projekt liegt unter `apps/niknolig-defense-ios/`; die lokalen Swift
+Pakete befinden sich unter `packages/`. Der Stand wurde aus dem
+[iOS-Monorepo](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo)
+übernommen (Commit
+[`afe4f5a`](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo/commit/afe4f5a3f0b84500437484a3bf0b3976d7b99e58)).
+
+Swift-Vertrags- und Fail-closed-Tests ausführen:
+
+```sh
+swift test
+```
+
+Simulator-Builds benötigen macOS mit Xcode:
+
+```sh
+xcodebuild -project apps/niknolig-defense-ios/NIKNOLIGDefense.xcodeproj -scheme 'NIKNOLIG Defense' -destination 'generic/platform=iOS Simulator' build
+```
+
+Der eigenständige Build und die iOS-Validierung der übrigen Monorepo-Apps sind
+weiterhin im
+[iOS-Monorepo](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo)
+dokumentiert.
 
 ## Support
 

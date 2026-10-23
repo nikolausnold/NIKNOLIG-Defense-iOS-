@@ -93,6 +93,12 @@ Scheme `NIKNOLIGDefense`. Ein neuer Xcode-Build sowie echte Simulator-/Gerätete
 Linux-Umgebung mangels Xcode/Apple-Simulator nicht möglich. Signing und
 Archivierung wurden nicht geprüft. Vor Freigabe müssen macOS-CI und
 iOS-17+-Gerätetests diese Lücken schließen.
+Nach dem Commit wurde für diesen Branch noch kein iOS-CI-Lauf gefunden.
+Der separate Read-only-Code-Review meldete keine wesentlichen Probleme; der
+automatisierte Review im Validierungswerkzeug war dagegen nicht verfügbar.
+Der Secret-Scan fand keine Geheimnisse. CodeQL meldete für Actions keine
+Warnungen, konnte aber keine Swift-Datenbank erstellen; eine vollständige
+automatisierte Swift-Sicherheitsprüfung steht daher noch aus.
 
 ## Support
 

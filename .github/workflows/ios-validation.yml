@@ -34,7 +34,7 @@ jobs:
         run: >-
           xcodebuild
           -project apps/niknolig-defense-ios/NIKNOLIGDefense.xcodeproj
-          -scheme 'NIKNOLIG Defense'
+          -scheme NIKNOLIGDefense
           -destination 'generic/platform=iOS Simulator'
           CODE_SIGNING_ALLOWED=NO
           build

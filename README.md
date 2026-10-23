@@ -51,13 +51,54 @@ führt diese Tests und einen Xcode-Simulator-Build auf macOS aus.
 Simulator-Builds benötigen macOS mit Xcode:
 
 ```sh
-xcodebuild -project apps/niknolig-defense-ios/NIKNOLIGDefense.xcodeproj -scheme 'NIKNOLIG Defense' -destination 'generic/platform=iOS Simulator' build
+xcodebuild -project apps/niknolig-defense-ios/NIKNOLIGDefense.xcodeproj -scheme NIKNOLIGDefense -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
 ```
 
 Der eigenständige Build und die iOS-Validierung der übrigen Monorepo-Apps sind
 weiterhin im
 [iOS-Monorepo](https://github.com/nikolausnold/nikolausnold-NIKNOLIG-iOS-Monorepo)
 dokumentiert.
+
+### Offizielle Defense-Website
+
+Die iOS-App öffnet ausschließlich https://defense.niknolig.com/ über den
+iOS-Standardbrowser. Zuvor prüft sie die Website mit einem ungecachten HTTPS-GET
+(20 Sekunden Request-, 30 Sekunden Gesamtzeitlimit). Nur HTTP 2xx gilt als
+erfolgreiche Antwort; Weiterleitungen sind ausschließlich innerhalb derselben
+HTTPS-Domain ohne Zugangsdaten und mit Standardport erlaubt. Es gibt keine
+ATS-Ausnahmen oder eigene TLS-Vertrauensausnahmen und keine neuen Abhängigkeiten.
+Offline-, DNS-, TLS-, Timeout-, HTTP- und Browser-Öffnungsfehler erscheinen mit
+einer erneuten Versuchsmöglichkeit. Eine konfigurierte URL allein bedeutet keine
+Erreichbarkeit. Nach Übergabe an den Browser kann die App dessen Ladeergebnis
+nicht beobachten; die Prüfung ist nur eine Momentaufnahme.
+
+Die Website wird im aktiven
+[Defense-App-Repository](https://github.com/nikolausnold/-niknolig-defense)
+gepflegt; das separate Defense-Website-Repository ist archiviert. Die übrigen
+Website-Dateien in diesem Repository sind nicht das Produktions-Deployment.
+
+Validierung am 23.10.2026: Der HTTPS-GET aus der Linux-Testumgebung scheiterte
+bereits bei DNS mit `curl: (6) Could not resolve host: defense.niknolig.com`
+(HTTP `000`, kein TLS-Handshake und keine HTTP-Antwort). Dies belegt keine
+produktive Erreichbarkeit und unterscheidet nicht zwischen Produktions-DNS- und
+Umgebungsproblemen. Die 11 Swift-Tests bestehen lokal, einschließlich
+URL-/Weiterleitungsregeln, HTTP-Fehlern, Netzwerkfehlerzuordnung, Ladezustand,
+Abbruch, Retry und abgelehnter Browser-Öffnung mit simuliertem Transport.
+Der bisherige iOS-CI-Lauf
+[`39941379218`](https://github.com/nikolausnold/NIKNOLIG-Defense-iOS-/actions/runs/39941379218)
+bestand die damaligen fünf macOS-Tests, scheiterte aber am nicht vorhandenen
+Scheme `NIKNOLIG Defense`; Workflow und Build-Befehl verwenden nun das vorhandene
+Scheme `NIKNOLIGDefense`. Ein neuer Xcode-Build sowie echte Simulator-/Gerätetests
+(insbesondere iOS-Browserübergabe und reale Offline-/TLS-Szenarien) sind in dieser
+Linux-Umgebung mangels Xcode/Apple-Simulator nicht möglich. Signing und
+Archivierung wurden nicht geprüft. Vor Freigabe müssen macOS-CI und
+iOS-17+-Gerätetests diese Lücken schließen.
+Nach dem Commit wurde für diesen Branch noch kein iOS-CI-Lauf gefunden.
+Der separate Read-only-Code-Review meldete keine wesentlichen Probleme; der
+automatisierte Review im Validierungswerkzeug war dagegen nicht verfügbar.
+Der Secret-Scan fand keine Geheimnisse. CodeQL meldete für Actions keine
+Warnungen, konnte aber keine Swift-Datenbank erstellen; eine vollständige
+automatisierte Swift-Sicherheitsprüfung steht daher noch aus.
 
 ## Support
 

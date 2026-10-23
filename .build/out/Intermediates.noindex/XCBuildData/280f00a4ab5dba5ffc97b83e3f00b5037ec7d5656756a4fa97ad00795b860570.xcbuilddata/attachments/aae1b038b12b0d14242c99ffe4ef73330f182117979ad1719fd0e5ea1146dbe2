@@ -1,4 +1,0 @@
-module SharedAPI {
-header "SharedAPI-Swift.h"
-export *
-}

@@ -1,4 +1,0 @@
-module SharedSecurity {
-header "SharedSecurity-Swift.h"
-export *
-}

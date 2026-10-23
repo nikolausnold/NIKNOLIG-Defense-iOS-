@@ -1,0 +1,40 @@
+name: iOS validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/ios-validation.yml
+      - Package.swift
+      - README.md
+      - apps/niknolig-defense-ios/**
+      - packages/**
+      - tests/**
+  pull_request:
+    paths:
+      - .github/workflows/ios-validation.yml
+      - Package.swift
+      - README.md
+      - apps/niknolig-defense-ios/**
+      - packages/**
+      - tests/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ios:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Swift contract tests
+        run: swift test
+      - name: Build iOS Simulator app
+        run: >-
+          xcodebuild
+          -project apps/niknolig-defense-ios/NIKNOLIGDefense.xcodeproj
+          -scheme 'NIKNOLIG Defense'
+          -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO
+          build

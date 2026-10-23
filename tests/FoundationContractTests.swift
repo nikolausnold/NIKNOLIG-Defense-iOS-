@@ -18,7 +18,11 @@ final class FoundationContractTests: XCTestCase {
         XCTAssertThrowsError(
             try HealthEndpoint.live.request(baseURL: URL(string: "http://api.example.test")!)
         )
-        let invalidBaseURLs = ["https://api.example.test?x=1"]
+        let invalidBaseURLs = [
+            "https://api.example.test?x=1",
+            "https://name@api.example.test",
+            "https://api.example.test#fragment"
+        ]
         for value in invalidBaseURLs {
             XCTAssertThrowsError(
                 try HealthEndpoint.live.request(baseURL: URL(string: value)!)

@@ -45,6 +45,9 @@ Swift-Vertrags- und Fail-closed-Tests ausführen:
 swift test
 ```
 
+Der Workflow [iOS validation](https://github.com/nikolausnold/NIKNOLIG-Defense-iOS-/actions/workflows/ios-validation.yml)
+führt diese Tests und einen Xcode-Simulator-Build auf macOS aus.
+
 Simulator-Builds benötigen macOS mit Xcode:
 
 ```sh

@@ -1,0 +1,19 @@
+{
+  "" : {
+    "diagnostics" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/SharedAPI-primary.dia",
+    "emit-module-dependencies" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/SharedAPI-primary-emit-module.d",
+    "emit-module-diagnostics" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/SharedAPI-primary-emit-module.dia",
+    "pch" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/SharedAPI-primary-Bridging-header.pch",
+    "swift-dependencies" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/SharedAPI-primary.swiftdeps"
+  },
+  "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/packages/shared-api/Sources/SharedAPI/HealthEndpoint.swift" : {
+    "const-values" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/HealthEndpoint.swiftconstvalues",
+    "dependencies" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/HealthEndpoint.d",
+    "diagnostics" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/HealthEndpoint.dia",
+    "index-unit-output-path" : "/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/HealthEndpoint.o",
+    "llvm-bc" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/HealthEndpoint.bc",
+    "object" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/HealthEndpoint.o",
+    "swift-dependencies" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/HealthEndpoint.swiftdeps",
+    "swiftmodule" : "/home/runner/work/NIKNOLIG-Defense-iOS-/NIKNOLIG-Defense-iOS-/.build/out/Intermediates.noindex/SharedAPI.build/Debug-linux-x86_64/SharedAPI-t.build/Objects-normal/x86_64/HealthEndpoint~partial.swiftmodule"
+  }
+}

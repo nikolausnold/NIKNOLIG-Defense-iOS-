@@ -1,0 +1,4 @@
+module SharedModels {
+header "SharedModels-Swift.h"
+export *
+}

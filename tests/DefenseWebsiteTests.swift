@@ -123,7 +123,7 @@ private class WebsiteStubProtocol: URLProtocol {
         }
         let value = Self.scenario
         if value < 0 {
-            client?.urlProtocol(self, didFailWithError: URLError(URLError.Code(rawValue: value)))
+            client?.urlProtocol(self, didFailWithError: URLError(.notConnectedToInternet))
         } else {
             let response = HTTPURLResponse(
                 url: DefenseWebsite.url, statusCode: value,
